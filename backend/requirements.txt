@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+google-api-python-client
+pandas
+vaderSentiment
+scikit-learn
+spacy
+openai
+tweepy
+python-dotenv
+pydantic
+fpdf2
+python-docx
+nltk
+matplotlib
+emoji
+google-genai

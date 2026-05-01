@@ -1,71 +1,366 @@
-# YouTube AI Automation Platform
+# 🚀 YouTube AI Automation Platform
 
-An end-to-end AI-driven application that extracts YouTube discourse data, processes it via advanced NLP pipelines, visualizes trends, generates AI images and tweets, and automates social media publishing. 
+An end-to-end AI-driven application that extracts YouTube discourse data, processes it using advanced NLP pipelines, visualizes insights, generates AI-powered content (text + images), and automates social media publishing.
 
-## ✨ Key Features & Updates
+---
 
-- **Massive YouTube Data Extraction**: Leverages the official YouTube Data API to intelligently search for up to **100 videos** based on topics and extract thousands of viewer comments per session.
-- **Advanced NLP & Sentiment Analysis**: Uses tools like `spacy` and `vaderSentiment` to analyze text discussions. It categorizes general sentiment (Positive, Neutral, Negative), extracts specific leader and political party mentions, and groups top discussion topics.
-- **Automated Social Media Generation**: 
-  - Generates highly engaging, human-like summary posts via the **OpenAI API (GPT-4o-mini)** based on the parsed YouTube discussion.
-  - Automatically generates a custom AI visualization via **OpenAI Image Generation** to accompany the post.
-  - Includes a brand new **Download Image** button in the UI so you can save the AI-generated graphics locally.
-- **Direct Twitter (X) Integration**: Allows seamless, 1-click publishing directly to your Twitter account utilizing `tweepy` and OAuth 1.0a User Access Tokens.
-- **Interactive Analytics Dashboard**: A sleek, modern React frontend using Vite and Vanilla CSS that visualizes data findings using interactive Recharts (pie and bar charts). 
-- **1-Click Execution**: Includes an easy-to-use `run_project.bat` script to instantly boot up both your frontend and backend servers simultaneously on Windows.
-- **API Diagnostics**: Includes a standalone `test_apis.py` script to instantly verify your API configurations and network connections.
+# ✨ Key Features
 
-## 🛠️ Tech Stack
+### 📊 Massive YouTube Data Extraction
 
-### Backend
-- **Framework**: FastAPI (Python)
-- **Data & APIs**: `google-api-python-client` (YouTube), `tweepy` (Twitter), `openai` (GPT & DALL-E)
-- **NLP**: `vaderSentiment`, `spacy`
-- **Document & Export Pipeline**: `fpdf2`, `python-docx`, `matplotlib`, `pandas`
+* Uses YouTube Data API to fetch up to **100 videos**
+* Extracts **thousands of comments** per session
+* Topic-based intelligent search
 
-### Frontend
-- **Framework**: React.js with Vite
-- **Styling**: Modern aesthetic built with purely custom Vanilla CSS frameworks and fluid transitions.
-- **Data Visualization**: `recharts` for dynamic, responsive front-end charts.
-- **API Calls**: Custom lightweight fetch-services explicitly integrated with the FastAPI pipeline.
+---
 
-## 🚀 Setup Instructions
+### 🧠 Advanced NLP & Sentiment Analysis
 
-### 1. Environment Configuration (.env)
-In the root directory, you must have a `.env` file that contains all your API keys. 
-*Note: Make sure your Twitter keys are generated with **OAuth 1.0a (User Access Tokens)** and have Read/Write permissions!*
+* Built with **spaCy + VADER Sentiment**
+* Classifies:
 
-```env
-# Google & YouTube
-YOUTUBE_API_KEY=your_key_here
+  * Positive 😊
+  * Neutral 😐
+  * Negative 😡
+* Extracts:
 
-# OpenAI (For Text and Image Generation)
-OPENAI_API_KEY=your_key_here
+  * People names
+  * Organizations
+  * Trending discussion topics
 
-# Twitter/X Publishing
-TWITTER_API_KEY=your_key_here
-TWITTER_API_SECRET=your_key_here
-TWITTER_ACCESS_TOKEN=your_key_here
-TWITTER_ACCESS_TOKEN_SECRET=your_key_here
+---
+
+### 🤖 AI Content Generation
+
+* Uses **OpenAI GPT-4o-mini**
+* Generates:
+
+  * Engaging social media posts (150–200 words)
+  * Human-like summaries from YouTube discussions
+* Includes emojis, tone, and engagement hooks
+
+---
+
+### 🎨 AI Image Generation
+
+* Uses **OpenAI Image API (gpt-image-1)**
+* Generates custom visuals based on topic
+* Includes:
+
+  * 🎯 Real-time image preview
+  * 📥 Download Image button
+
+---
+
+### 🐦 Twitter (X) Automation
+
+* One-click publishing using **Tweepy**
+* OAuth 1.0a authentication
+* Supports **Read + Write permissions**
+
+---
+
+### 📈 Interactive Dashboard
+
+* Built with **React + Vite**
+* Uses **Recharts** for:
+
+  * Pie charts
+  * Bar charts
+* Fully responsive modern UI
+
+---
+
+### ⚡ 1-Click Execution
+
+* Run everything using:
+
+```bash
+run_project.bat
 ```
 
-*(Optional) Test your API keys at any time by opening a terminal in the root folder and running: `.\backend\venv\Scripts\python test_apis.py`*
+---
 
-### 2. Quick Start (Windows)
-If you are on Windows, you can skip the manual setup and simply double-click the **`run_project.bat`** file in your root directory! It will automatically start both the FastAPI server and the React frontend.
+### 🧪 API Diagnostics Tool
 
-### 3. Manual Start (Alternative)
-If you prefer running the commands manually:
+* Includes:
 
-**Backend Setup:**
-1. Open a terminal and navigate to `./backend`.
-2. Activate your virtual environment: `.\venv\Scripts\activate`.
-3. Install dependencies: `pip install -r requirements.txt`.
-4. Start the backend API locally via: `python -m uvicorn app.main:app --reload`.
-5. The backend API is successfully running at `http://localhost:8000`.
+```bash
+test_apis.py
+```
 
-**Frontend Setup:**
-1. Open a secondary terminal to `./frontend`.
-2. Install Node dependencies: `npm install`.
-3. Launch your web UI engine: `npm run dev`. 
-4. Access the web interface at `http://localhost:5173/`.
+* Verifies all API connections instantly
+
+---
+
+# 🛠️ Tech Stack
+
+## 🔹 Backend
+
+* FastAPI (Python)
+* OpenAI API (Text + Image)
+* YouTube Data API
+* Tweepy (Twitter API)
+* spaCy + vaderSentiment
+
+---
+
+## 🔹 Frontend
+
+* React.js (Vite)
+* Vanilla CSS (custom styling)
+* Recharts (data visualization)
+
+---
+
+# 🔑 API Setup Guide (Step-by-Step)
+
+---
+
+## 🔴 1. YouTube API Key
+
+👉 Visit: https://console.cloud.google.com/
+
+### Steps:
+
+1. Create a new project
+2. Go to **APIs & Services → Library**
+3. Enable **YouTube Data API v3**
+4. Go to **Credentials → Create API Key**
+5. Copy the key
+
+---
+
+## 🟢 2. OpenAI API Key
+
+👉 Visit: https://platform.openai.com/
+
+### Steps:
+
+1. Login / Signup
+2. Go to **API Keys**
+3. Click **Create new secret key**
+4. Copy the key
+5. ⚠️ Add billing (required)
+
+---
+
+### ⚠️ Important
+
+Without billing, you will get:
+
+```
+429 insufficient_quota
+billing_hard_limit_reached
+```
+
+---
+
+## 🔵 3. Twitter (X) API Setup
+
+👉 Visit: https://developer.twitter.com/
+
+---
+
+### Steps:
+
+#### Step 1: Create Developer Account
+
+* Apply and create an app
+
+---
+
+#### Step 2: Set Permissions
+
+Go to:
+
+```
+App Settings → User Authentication Settings
+```
+
+Select:
+
+```
+Read and Write
+```
+
+---
+
+#### Step 3: Generate Tokens
+
+Copy these:
+
+```env
+TWITTER_API_KEY=
+TWITTER_API_SECRET=
+TWITTER_ACCESS_TOKEN=
+TWITTER_ACCESS_TOKEN_SECRET=
+```
+
+---
+
+## 🟡 4. Verify API Keys
+
+Run:
+
+```bash
+.\backend\venv\Scripts\python test_apis.py
+```
+
+Expected:
+
+```
+✅ OpenAI connected
+✅ Twitter connected
+```
+
+---
+
+# ⚙️ Environment Configuration
+
+Create `.env` file in root:
+
+```env
+YOUTUBE_API_KEY=your_key
+OPENAI_API_KEY=your_key
+TWITTER_API_KEY=your_key
+TWITTER_API_SECRET=your_key
+TWITTER_ACCESS_TOKEN=your_key
+TWITTER_ACCESS_TOKEN_SECRET=your_key
+```
+
+---
+
+# 🚀 Running the Project
+
+---
+
+## 🟢 Option 1: Quick Start (Windows)
+
+Double-click:
+
+```
+run_project.bat
+```
+
+---
+
+## 🔵 Option 2: Manual Setup
+
+### Backend
+
+```bash
+cd backend
+.\venv\Scripts\activate
+pip install -r requirements.txt
+python -m uvicorn app.main:app --reload
+```
+
+---
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+# 🌐 Access URLs
+
+| Service  | URL                   |
+| -------- | --------------------- |
+| Frontend | http://localhost:5173 |
+| Backend  | http://localhost:8000 |
+
+---
+
+# 🧪 Example Workflow
+
+1. Enter topic
+2. Fetch YouTube data
+3. Analyze comments
+4. Generate AI post
+5. Generate AI image
+6. Publish to Twitter
+
+---
+
+# ⚠️ Troubleshooting
+
+---
+
+## ❌ OpenAI Error (429)
+
+👉 Cause:
+
+* No credits
+
+👉 Fix:
+
+* Add billing
+
+---
+
+## ❌ Random Image / No Image
+
+👉 Cause:
+
+* Image API failed
+
+👉 Fix:
+
+* Check OpenAI key
+* Ensure billing is active
+
+---
+
+## ❌ Twitter Post Failed
+
+👉 Check:
+
+* Permissions = Read + Write
+* Regenerate tokens after changes
+
+---
+
+## ❌ Backend Not Starting
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# 📌 Future Improvements
+
+* Instagram API integration
+* Local image generation (Stable Diffusion)
+* Post scheduling
+* Multi-language support
+* AI recommendation engine
+
+---
+
+# 🎯 Conclusion
+
+This project demonstrates:
+
+* Full-stack development
+* AI integration
+* API orchestration
+* Real-world automation
+
+Perfect for:
+
+* 💼 Placements
+* 🧠 Learning AI systems
+* 🚀 Portfolio projects
+
+---
+
+# ⭐ If you like this project
+
+Give it a ⭐ on GitHub!
